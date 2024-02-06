@@ -1,6 +1,14 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # اسم الفرع الرئيسي
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
@@ -10,13 +18,10 @@ jobs:
       with:
         python-version: 3.x
 
-    - name: Create requirements.txt
-      run: echo "flask==2.0.1" > requirements.txt
-
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install flask
 
     - name: Deploy to GitHub Pages
       run: |
