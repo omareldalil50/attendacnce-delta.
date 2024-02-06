@@ -1,0 +1,126 @@
+.navbar-nav .nav-link.active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    /* لون الخط */
+    margin-top: 3px;
+    /* المسافة بين النص والخط */
+}
+
+/* يمكنك استبدال ".your-image-class" بالصف الذي يحتوي على الصورة في HTML */
+.your-image-class {
+    width: 220px;
+    /* تعيين العرض بقيمة 220 بكسل */
+    height: auto;
+    /* حافظ على نسبة الارتفاع الأصلية واجعل الارتفاع يتغير تلقائياً */
+    display: inline-block;
+    /* قم بعرض الصورة كعنصر مستقيم بجانب النص الآخر */
+    vertical-align: top;
+    /* قم بتحديد موضع الصورة بالجزء العلوي للنص الذي بجانبه */
+    position: relative;
+    left: 30px;
+}
+
+body {
+    background-color: #343A40;
+}
+
+.reveal {
+    position: relative;
+    display: flex;
+    color: #6ee1f5;
+    font-size: 2rem;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    white-space: pre;
+    position: relative;
+    left: 500px;
+    margin-top: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+    span {
+        opacity: 0;
+        transform: scale(0);
+        animation: fade-in 2.4s forwards;
+    }
+
+    &::before,
+    &::after {
+        position: relative;
+        content: "";
+        top: 0;
+        height: 100%;
+        width: 2px;
+        background: white;
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    &::before {
+        left: 100%;
+        animation: slide-left 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
+    }
+
+    &::after {
+        right: 100%;
+        animation: slide-right 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
+    }
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slide-left {
+    to {
+        left: -6%;
+        opacity: 1;
+        transform: scale(0.9);
+    }
+}
+
+@keyframes slide-right {
+    to {
+        right: -6%;
+        opacity: 1;
+        transform: scale(0.9);
+    }
+}
+
+
+
+
+@media (max-width: 768px) {
+    .reveal {
+        left: 0; /* Adjust the left position for smaller screens */
+        margin-top: 20px; /* Adjust the top margin for smaller screens */
+        text-align: center; /* Center the text on smaller screens */
+        font-size: 17px;
+        margin-left: 62px;
+    }
+}
+
+.i1 {
+    margin-left: 260px;
+    max-width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+
+    /* Add some additional styles if needed */
+}
+
+/* Add a media query for responsiveness */
+@media (max-width: 768px) {
+    .i1 {
+        margin-left: 0; /* Reset margin for smaller screens */
+        max-width: 100%; /* Adjust the max-width for smaller screens */
+    }
+}
+
+
