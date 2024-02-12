@@ -1,4 +1,4 @@
-name: Flask CI/CD
+name: Python CI
 
 on:
   push:
@@ -13,19 +13,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Python
+    - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.x
-
-    - name: Install python3-distutils
-      run: sudo apt-get install -y python3-distutils
+        python-version: 3.12
 
     - name: Install dependencies
       run: |
+        sudo apt-get install -y python3-distutils
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run Flask app
+    - name: Run tests
       run: |
-        python app.py
+        python test.py
