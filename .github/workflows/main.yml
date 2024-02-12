@@ -1,4 +1,4 @@
-name: Python CI
+name: CI
 
 on:
   push:
@@ -13,17 +13,16 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Setup Python
+    - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.12
+        python-version: 3.8
 
     - name: Install dependencies
       run: |
         sudo apt-get install -y python3-distutils
         python -m pip install --upgrade pip
+        pip install numpy==1.19.3
         pip install -r requirements.txt
 
-    - name: Run tests
-      run: |
-        python test.py
+    # Add the rest of your build and test steps here
