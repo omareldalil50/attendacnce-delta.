@@ -1,0 +1,121 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delta University</title>
+    <link rel="icon" href="./logo.png" type="image/x-icon">
+    <!-- رابط Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- روابط Bootstrap JavaScript و Popper.js (إذا كنت بحاجة إلى تفعيل القوائم المنسدلة والمربعات النصية) -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="../static/style.css">
+
+    <script>
+        function toggleUploadOption() {
+            var uploadOption = document.getElementById('uploadOption');
+            var cameraOption = document.getElementById('cameraOption');
+            var fileInput = document.getElementById('fileInput');
+            var captureButton = document.getElementById('captureButton');
+
+            if (uploadOption.checked) {
+                fileInput.style.display = 'block';
+                captureButton.style.display = 'none';
+            } else {
+                fileInput.style.display = 'none';
+                captureButton.style.display = 'block';
+            }
+        }
+        function toggleUploadOption() {
+            var fileInput = document.getElementById("fileInput");
+            var captureButton = document.getElementById("captureButton");
+
+            if (document.getElementById("uploadOption").checked) {
+                fileInput.style.display = "inline-block";
+                captureButton.style.display = "none";
+            } else {
+                fileInput.style.display = "none";
+                captureButton.style.display = "inline-block";
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #DB6400;">
+        <a class="navbar-brand" href="#">
+            <!-- قم بإضافة الصورة هنا -->
+            <img src="./static/logo delta2.png" class="your-image-class" alt="لوجو الموقع">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto mr-5">
+                <li class="nav-item active mr-2">
+                    <a class="nav-link text-white" href="http://127.0.0.1:5502/Home/Home.html">
+                        <i class="fas fa-home"></i> Home <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="https://dulms.deltauniv.edu.eg/">
+                        <i class="gdlr-core-pos-right fa fa-university"></i> Portal
+                    </a>
+                </li>
+                <li class="nav-item mr-2">
+                    <a class="nav-link text-white" href="https://new.deltauniv.edu.eg/EN/aboutdu/index">
+                        <i class="fas fa-info-circle"></i> About
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="https://new.deltauniv.edu.eg/EN/contactus/index">
+                        <i class="fas fa-envelope"></i> Contact US
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
+                <!-- يمكنك إضافة المزيد من العناصر هنا -->
+            </ul>
+        </div>
+
+
+    </nav>
+
+    <div class="container">
+        <div class="typewriter">Face Recognition Web App</div>
+    </div>
+    
+    <div class="container2">
+        <input type="radio" id="uploadOption" name="uploadType" checked onclick="toggleUploadOption()" class="r1">
+        Upload Image&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" id="cameraOption" name="uploadType" onclick="toggleUploadOption()"> Capture from Camera
+    </div>
+
+    <div class="container3">
+
+        <form action="/upload" method="post" enctype="multipart/form-data" id="fileInput">
+            <input type="file" name="file" accept=".jpg, .jpeg, .png">
+            <input type="submit" value="Upload and Recognize" class="f2">
+        </form>
+
+        <form action="/capture" method="post" style="display: none;" id="captureButton">
+            <input type="submit" value="Capture and Recognize" class="f1">
+        </form>
+    </div>
+
+</body>
+
+</html>
