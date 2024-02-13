@@ -27,6 +27,5 @@ jobs:
 
     - name: Run Flask app
       run: |
-        python app.py  # قد تحتاج لتعديل هذا السطر بناءً على كيفية تشغيل تطبيقك
 
     # Add the rest of your build and test steps here
